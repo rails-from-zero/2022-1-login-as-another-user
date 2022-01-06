@@ -1,0 +1,9 @@
+ul.admin-users {
+    list-style-type: none;
+
+    li:not(:last-child) {
+        border-bottom: 1px dashed #777;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+}

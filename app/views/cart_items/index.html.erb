@@ -1,0 +1,19 @@
+<h3>My Shopping Cart</h3>
+
+<% if @cart_items.empty? %>
+  <p>Your cart is empty :(</p>
+<% else%>
+  <% @cart_items.each do |cart_item| %>
+    <p>
+      <%= cart_item.book.title %> |
+      <b><%= number_to_currency(cart_item.book.price, unit: "€") %></b> |
+      <%= link_to "Remove", cart_item, "data-turbo-method": "delete" %>
+    </p>
+  <% end %>
+
+  <p class="total">
+    <b>Total: <%= number_to_currency total_price(@cart_items), unit: "€" %></b>
+  </p>
+
+  <p><%= button_to "Place order", :orders %></p>
+<% end %>

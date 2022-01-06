@@ -1,0 +1,17 @@
+<% @books.each do |book| %>
+  <article>
+    <figure>
+      <%= image_tag book.image_path %>
+    </figure>
+
+    <div class="description">
+      <h3><%= book.title %></h3>
+      <p>By <strong><%= book.author %></strong></p>
+      <p class="price">
+        <%= number_to_currency(book.price, unit: "€") %>
+      </p>
+
+      <%= button_to "Add to Cart", [book, :cart_items] %>
+    </div>
+  </article>
+<% end %>

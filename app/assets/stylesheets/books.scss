@@ -1,0 +1,49 @@
+header {
+    text-align: right;
+    margin-bottom: 20px;
+
+    ul li {
+        display: inline-block;
+
+        &:not(:last-child) {
+            border-right: 1px solid #333;
+            margin-right: 15px;
+            padding-right: 15px;
+        }
+
+        &.admin a {
+            color: #f00;
+
+            &:hover {
+                background-color: #f00;
+                color: #fff;
+            }
+        }
+    }
+}
+
+article {
+    figure, .description {
+        vertical-align: top;
+        display: table-cell;
+    }
+
+    figure {
+        img {
+            width: 200px;
+            border: 1px solid #000;
+            box-shadow: 3px 3px 1px #888;
+        }
+    }
+
+    .description {
+        padding-left: 30px;
+
+        .price {
+            font-size: 200%;
+            font-weight: bold;
+
+            padding-bottom: 5px;
+        }
+    }
+}
