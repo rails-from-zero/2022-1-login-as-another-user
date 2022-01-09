@@ -16,12 +16,19 @@
           <% if user_signed_in? %>
             <li>
               Logged in as <b><%= current_user.name %></b>
+              <% if delegated_user? %>
+                (you really are <%= original_current_user.name %>)
+              <% end %>
             </li>
             <li><%= link_to "Shopping Cart", :cart_items %></li>
             <% if current_user.admin? %>
               <li class="admin"><%= link_to "Admin Panel", [:admin, :users] %></li>
             <% end %>
-            <li><%= link_to "Logout", :destroy_user_session, "data-turbo-method": "delete" %></li>
+            <% if delegated_user? %>
+              <li><%= link_to "Leave client session", [:admin, current_user, :representation], "data-turbo-method": "delete" %></li>
+            <% else %>
+              <li><%= link_to "Logout", :destroy_user_session, "data-turbo-method": "delete" %></li>
+            <% end %>
           <% else %>
             <li><%= link_to "Login", :new_user_session %></li>
           <% end %>

@@ -11,6 +11,7 @@
       </p>
       <p>
         <%= link_to "Remove", [:admin, user], "data-turbo-method": "delete" %>
+        <%= link_to "Login on users behalf", [:admin, user, :representation], "data-turbo-method": "post" %>
       </p>
     </li>
   <% end %>

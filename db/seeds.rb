@@ -22,10 +22,17 @@ ActiveRecord::Base.transaction do
 
   User.create!(
     name: "Administrator",
-    email: "admin@somewebsite.com",
+    email: "admin@example.com",
     admin: true,
-    password: "secret2",
-    password_confirmation: "secret2"
+    password: "secret",
+    password_confirmation: "secret"
+  )
+
+  User.create!(
+    name: "Daniel",
+    email: "daniel@example.com",
+    password: "secret",
+    password_confirmation: "secret"
   )
 
   user_names.each do |name|
